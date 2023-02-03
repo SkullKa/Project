@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+
+<div>
+    <h1>
+        Категории
+    </h1>
+</div>
+
+
+<div>
+    {% for i in category %}
+    <div style="position: relative">
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.category}}</h5>
+                    <a href="{{i.id}}" class="btn btn-warning">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+
+{% endblock %}
