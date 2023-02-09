@@ -16,12 +16,13 @@
 <div class="card mb-3" style="max-width: 100%;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{product.link}}" class="img-fluid rounded-start" alt="..." style="width:80%">
+            {% load static %}
+        <img src="{% static 'catalog/1.jpg' %}" alt="My image">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h4 class="card-title">{{product.name}}</h4>
-
+                
                 <div class="features">
 
                     <span class="gray">Категория:</span> <span>{{product.category_id.category}}</span><br>
@@ -32,16 +33,7 @@
                 <h4>Описание:</h4>
                 <p>{{product.description}}
                 </p>
-<form method="post" enctype="multipart/form-data">
-{% csrf_token %}
-   {{ form.as_p }}
-  <button type="submit">Upload</button>
-</form>
 
-{% if img_obj %}
-  <h3>Succesfully uploaded : {{img_obj.title}}</h3>
-  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
-{% endif %}
                 <form action="{% url 'cart:cart_add' product.id %}" method="post">
                     {{ cart_product_form }}
                     {% csrf_token %}

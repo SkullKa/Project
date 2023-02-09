@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Product, Category
 from cart.forms import CartAddProductForm
-from .forms import ImageForm
+
 
 def product(request):
     list_category = Category.objects.all()
@@ -18,6 +18,8 @@ def catalog(request, category_id):
     print(category_id)
     list_product = Product.objects.filter(category_id=category_id)
     return render(request, 'catalog/base.html', context={'product': list_product})
+from django.shortcuts import render
+from .forms import ImageForm
 
 
 def image_upload_view(request):
